@@ -1,0 +1,16 @@
+# Raw source data — not committed (44 MB). See README for the download link.
+online_retail_II.xlsx
+
+# Large derived outputs — reproducible by running the pipeline scripts.
+retail_clean.csv
+cleaning_audit_removed_rows.csv
+
+# Editor / tooling
+.claude/
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Local server logs
+*.log
