@@ -2,14 +2,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RFM — Executive Brief</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Spline+Sans+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 :root{
   --paper:#f7f8fb; --card:#fdfdfe; --ink:#2b2f38; --ink-2:#4d525c; --ink-3:#757a84;
   --cobalt:#3b5bc0; --cobalt-deep:#2f4ba8; --cobalt-soft:#cdd7f0; --cobalt-wash:#eef1f9;
   --steel:#5f6b82; --positive:#3f9476; --negative:#c75a4a; --amber:#c79a3a;
   --hairline:#dde0e5; --strong:#c4c8cf; --frame:#2b2f38;
-  --display:'Manrope',system-ui,sans-serif; --body:'Spectral',Georgia,serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --display:'Hanken Grotesk',system-ui,sans-serif; --body:'Spectral',Georgia,serif;
+  --mono:'Spline Sans Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;}
 body{
@@ -254,7 +254,7 @@ function render(country){
   const line = `<polyline fill="none" stroke="#3b5bc0" stroke-width="2.2" points="${pts.join(' ')}"/>`;
   // mark peaks (Nov)
   let marks='';
-  mo.forEach((d,i)=>{ if(d.month.endsWith('-11')){ marks+=`<circle cx="${x(i).toFixed(0)}" cy="${y(d.revenue).toFixed(0)}" r="3.5" fill="#2f4ba8"/><text x="${x(i).toFixed(0)}" y="${(y(d.revenue)-9).toFixed(0)}" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="11" fill="#2f4ba8">${d.month.slice(2,4)==='09'?'Nov 09':'Nov '+d.month.slice(2,4)}</text>`; }});
+  mo.forEach((d,i)=>{ if(d.month.endsWith('-11')){ marks+=`<circle cx="${x(i).toFixed(0)}" cy="${y(d.revenue).toFixed(0)}" r="3.5" fill="#2f4ba8"/><text x="${x(i).toFixed(0)}" y="${(y(d.revenue)-9).toFixed(0)}" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="11" fill="#2f4ba8">${d.month.slice(2,4)==='09'?'Nov 09':'Nov '+d.month.slice(2,4)}</text>`; }});
   $('#trend').innerHTML = grid+area+line+marks;
   $('#trendmeta').innerHTML = `<span>${mo[0].month}</span><span>OCT–NOV PEAKS ≈ 2× JAN–FEB BASELINE</span><span>${mo[mo.length-1].month}</span>`;
 })();
