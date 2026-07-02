@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generate two self-contained, interactive RFM dashboards (Akos Szakaly brand style)
-from dashboard_data.json. Outputs: dashboard_executive.html, dashboard_operative.html"""
+from dashboard_data.json. Outputs: index.html (executive), operative.html"""
 import json
 
 with open('dashboard_data.json') as f:
@@ -171,6 +171,7 @@ EXEC_HTML = """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
       <span class="kick">RFM — EXECUTIVE BRIEF</span>
       <h1>Where the revenue actually lives.</h1>
       <div class="sub">Customer-value segmentation for a UK online retailer — read the concentration, act on the few that matter.</div>
+      <a href="operative.html" style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cobalt-deep);text-decoration:none;border:1px solid var(--cobalt-soft);padding:6px 11px;margin-top:12px;display:inline-block;">Operative dashboard →</a>
     </div>
     <div class="hdr-r">
       <svg class="reg" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="17" cy="17" r="10.5"/><path d="M17 1.5v31M1.5 17h31"/></svg>
@@ -291,6 +292,7 @@ OPS_HTML = """<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
       <span class="kick">RFM — SEGMENT OPERATIONS</span>
       <h1>Target the right list. Today.</h1>
       <div class="sub">Pick a segment, read the play, export the audience — built for CRM execution, not reporting.</div>
+      <a href="index.html" style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cobalt-deep);text-decoration:none;border:1px solid var(--cobalt-soft);padding:6px 11px;margin-top:12px;display:inline-block;">← Executive overview</a>
     </div>
     <div class="hdr-r">
       <svg class="reg" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="17" cy="17" r="10.5"/><path d="M17 1.5v31M1.5 17h31"/></svg>
@@ -448,6 +450,6 @@ def build(tmpl):
                 .replace('__SEGCOLORS__', SEG_COLORS)
                 .replace('__DATA__', DATA_JSON))
 
-with open('dashboard_executive.html','w') as f: f.write(build(EXEC_HTML))
-with open('dashboard_operative.html','w') as f: f.write(build(OPS_HTML))
-print("Wrote dashboard_executive.html and dashboard_operative.html")
+with open('index.html','w') as f: f.write(build(EXEC_HTML))
+with open('operative.html','w') as f: f.write(build(OPS_HTML))
+print("Wrote index.html and operative.html")
